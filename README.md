@@ -1,5 +1,7 @@
 # Opus Mode for Codex
 
+[English](README.md) · [繁體中文](README.zh-TW.md)
+
 **Bring long-horizon reasoning habits to Codex.**
 
 A lightweight Agent Skill for long-running, context-heavy tasks: preserve earlier

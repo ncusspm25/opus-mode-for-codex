@@ -1,0 +1,27 @@
+diff --git a/flags.mjs b/flags.mjs
+index 73c9489..d73f68e 100644
+--- a/flags.mjs
++++ b/flags.mjs
+@@ -1,3 +1,10 @@
+ export function parseFlag(value) {
+-  return Boolean(value);
++  if (typeof value === 'boolean') return value;
++  if (value === undefined || value === null) return false;
++  if (typeof value === 'string') {
++    const normalized = value.trim().toLowerCase();
++    if (normalized === 'true') return true;
++    if (normalized === 'false' || normalized === '') return false;
++  }
++  throw new TypeError('Invalid boolean flag');
+ }
+diff --git a/service.mjs b/service.mjs
+index 3e6e1ef..2529011 100644
+--- a/service.mjs
++++ b/service.mjs
+@@ -1,3 +1,5 @@
++import { parseFlag } from './flags.mjs';
++
+ export function loadConfig(env) {
+-  return { exportEnabled: env.EXPORT_ENABLED === 'true' };
++  return { exportEnabled: parseFlag(env.EXPORT_ENABLED) };
+ }

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Opus Mode for Codex"
+  short_description: "Keep complex work coherent from context to completion"
+  default_prompt: "Use $opus-mode-for-codex to continue this complex task, preserve earlier decisions, and verify the outcome."
